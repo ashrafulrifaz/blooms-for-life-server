@@ -1,14 +1,17 @@
 const express = require("express");
+const cookieParser = require('cookie-parser')
 const applyMiddlewares = require("./middlewares/applyMiddlewares");
 const connectDB = require("./db/connectDB");
 require("dotenv").config();
 const app = express()
 const port = process.env.PORT || 5000
+app.use(cookieParser());
 
 const authenticationRoute = require('./routes/authentication/index')
-const newUserRoute = require('./routes/User/User')
+const userRoute = require('./routes/User/User')
 const districtsRoute = require('./routes/districts/districtrs')
 const upazilasRoute = require('./routes/Upazilas/upazilas')
+const requestRoute = require('./routes/donationRequest/donationRequest')
 
 applyMiddlewares(app)
 
@@ -18,7 +21,9 @@ app.use(districtsRoute)
 
 app.use(upazilasRoute)
 
-app.use(newUserRoute)
+app.use(userRoute)
+
+app.use(requestRoute)
 
 
 app.get('/health', (req, res) => {
