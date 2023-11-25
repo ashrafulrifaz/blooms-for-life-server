@@ -7,10 +7,16 @@ const port = process.env.PORT || 5000
 
 const authenticationRoute = require('./routes/authentication/index')
 const newUserRoute = require('./routes/User/User')
+const districtsRoute = require('./routes/districts/districtrs')
+const upazilasRoute = require('./routes/Upazilas/upazilas')
 
 applyMiddlewares(app)
 
 app.use(authenticationRoute)
+
+app.use(districtsRoute)
+
+app.use(upazilasRoute)
 
 app.use(newUserRoute)
 
