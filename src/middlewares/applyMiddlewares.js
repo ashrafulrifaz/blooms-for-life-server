@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require('cors');
+const cookieParser = require('cookie-parser')
 const { LOCAL_CLIENT } = require("../config/default");
 
 const applyMiddlewares = (app) => {
@@ -10,6 +11,7 @@ const applyMiddlewares = (app) => {
         credentials: true
     }));
     app.use(express.json());
+    app.use(cookieParser());
 };
 
 module.exports = applyMiddlewares;
