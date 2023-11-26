@@ -1,19 +1,19 @@
 const express = require("express");
 const cookieParser = require('cookie-parser')
-const applyMiddlewares = require("./middlewares/applyMiddlewares");
-const connectDB = require("./db/connectDB");
+const applyMiddlewares = require("./src/middlewares/applyMiddlewares");
+const connectDB = require("./src/db/connectDB");
 require("dotenv").config();
 const app = express()
 const port = process.env.PORT || 5000
 app.use(cookieParser());
 
-const authenticationRoute = require('./routes/authentication/index')
-const userRoute = require('./routes/User/User')
-const districtsRoute = require('./routes/districts/districtrs')
-const upazilasRoute = require('./routes/Upazilas/upazilas')
-const requestRoute = require('./routes/donationRequest/donationRequest');
-const statsRoute = require("./routes/statistics/statistics");
-const blogRoute = require("./routes/blog/blog");
+const authenticationRoute = require('./src/routes/authentication/index')
+const userRoute = require('./src/routes/User/User')
+const districtsRoute = require('./src/routes/districts/districtrs')
+const upazilasRoute = require('./src/routes/Upazilas/upazilas')
+const requestRoute = require('./src/routes/donationRequest/donationRequest');
+const statsRoute = require("./src/routes/statistics/statistics");
+const blogRoute = require("./src/routes/blog/blog");
 
 applyMiddlewares(app)
 

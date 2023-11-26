@@ -16,6 +16,7 @@ const updateDonationRequest = async (req, res) => {
                 date: request.date,
                 time: request.time,
                 details: request.details,
+                status: request.status
             }
         }, {new: true})
         res.send(result)

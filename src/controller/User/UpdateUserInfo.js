@@ -12,7 +12,9 @@ const updateUserInfo = async(req, res) => {
                     blood_group: user.blood_group,
                     district: user.district,
                     upazila: user.upazila,
-                    image: user.image
+                    image: user.image,
+                    status: user.status,
+                    role: user.role
                 }
             },
             {new: true}
