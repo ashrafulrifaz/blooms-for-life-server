@@ -15,6 +15,7 @@ const requestRoute = require('./routes/donationRequest/donationRequest');
 const statsRoute = require("./routes/statistics/statistics");
 const blogRoute = require("./routes/blog/blog");
 const paymentRoute = require("./routes/paymentIntent/paymentIntent");
+const fundingRoute = require("./routes/Funding/funding");
 
 applyMiddlewares(app)
 
@@ -31,6 +32,8 @@ app.use(requestRoute)
 app.use(statsRoute)
 
 app.use(blogRoute)
+
+app.use(fundingRoute)
 
 app.use(paymentRoute)
 
@@ -52,11 +55,4 @@ app.use((err, req, res, next) => {
     });
 })
 
-const main = async () => {
-    await connectDB()
-    app.listen(port, () => {
-        console.log(`blood server running on ${port}`);
-    })
-}
-
-main()
+module.exports = app
