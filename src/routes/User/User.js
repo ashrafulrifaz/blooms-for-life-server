@@ -5,6 +5,7 @@ const findSingleUser = require('../../controller/User/findSingleUser')
 const findAllUser = require('../../controller/User/findAllUser')
 const updateUserInfo = require('../../controller/User/UpdateUserInfo')
 const verifyToken = require('../../middlewares/verifyToken')
+const verifyAdmin = require('../../middlewares/verifyAdmin')
 const userRoute = express.Router()
 
 userRoute.post('/users', newUser)
@@ -13,7 +14,7 @@ userRoute.get('/users/search', searchDonor)
 
 userRoute.get('/users/:email', verifyToken, findSingleUser)
 
-userRoute.get('/users', verifyToken, findAllUser)
+userRoute.get('/users', verifyToken, verifyAdmin, findAllUser)
 
 userRoute.put('/users/:id', verifyToken, updateUserInfo)
 

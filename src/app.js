@@ -14,6 +14,7 @@ const upazilasRoute = require('./routes/Upazilas/upazilas')
 const requestRoute = require('./routes/donationRequest/donationRequest');
 const statsRoute = require("./routes/statistics/statistics");
 const blogRoute = require("./routes/blog/blog");
+const paymentRoute = require("./routes/paymentIntent/paymentIntent");
 
 applyMiddlewares(app)
 
@@ -30,6 +31,8 @@ app.use(requestRoute)
 app.use(statsRoute)
 
 app.use(blogRoute)
+
+app.use(paymentRoute)
 
 
 app.get('/health', (req, res) => {
